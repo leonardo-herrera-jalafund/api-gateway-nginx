@@ -31,14 +31,29 @@
 
     Save and close the file (with `CTRL+X`, then `Y` and `Enter`).
 
-4. **Run the script**
+4. **Add the SSL**
+
+    Navigate to gateway/certs
+    ```bash
+    cd gateway/certs
+    ```
+    
+    Then, run the command to create the SSL certificates 
+    ```bash
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout  bookstore.key -out bookstore.crt -config bookstore.conf
+    ```
+
+    Press ENTER to save with default values.
+
+
+5. **Run the script**
 
     Now, run the script `run.sh` to start the the Docker containers:
 
     ```bash
     sudo ./run.sh
     ```
-5. **Test the endpoints**
+6. **Test the endpoints**
 
     GET books, return the saved books.
     ```bash
